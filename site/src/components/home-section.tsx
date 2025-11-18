@@ -6,7 +6,7 @@ export function HomeSection() {
       id="home"
       className="relative flex min-h-[720px] flex-col overflow-hidden bg-black/40 pt-24 pb-16 sm:pt-28 sm:pb-20 lg:h-[150vh] lg:min-h-[1200px] lg:justify-start lg:pt-48 lg:pb-24"
     >
-      <AnimatedSection animation="fadeIn" delay={300}>
+      <AnimatedSection animation="fadeIn" delay={300} disableMobile={true}>
         <div className="container relative z-10 mx-auto px-6">
           <div className="max-w-2xl space-y-4 lg:space-y-0">
             <p className="text-xs uppercase tracking-[0.4em] text-white/60 sm:text-sm lg:hidden">
@@ -26,6 +26,7 @@ export function HomeSection() {
       <AnimatedSection 
         animation="fadeUp" 
         delay={600}
+        disableMobile={true}
       >
         <div 
           data-what-we-do-container

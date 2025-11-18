@@ -241,6 +241,13 @@ html {
   animation: float 3s ease-in-out infinite;
 }
 
+/* モバイルでfloatアニメーションを無効化 */
+@media (max-width: 768px) {
+  .animate-float {
+    animation: none;
+  }
+}
+
 /* Subtle zoom on hover */
 .hover-zoom {
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
