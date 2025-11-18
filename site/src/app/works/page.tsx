@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { AdBanner } from "@/components/ad-banner";
 import { ContactSection } from "@/components/contact-section";
 import { Header } from "@/components/header";
@@ -76,6 +76,10 @@ const worksItems = [
 
 export default function WorksPage() {
   const [currentFilter, setCurrentFilter] = useState('all');
+
+  useEffect(() => {
+    document.title = 'WORKS | toito.inc';
+  }, []);
 
   const filteredWorks = useMemo(() => {
     if (currentFilter === 'all') return worksItems;
@@ -159,7 +163,7 @@ export default function WorksPage() {
                 HOME
               </a>
               <span className="mx-2">{">"}</span>
-              <span className="text-black">WORK</span>
+              <span className="text-black">WORKS</span>
             </nav>
           </div>
         </div>

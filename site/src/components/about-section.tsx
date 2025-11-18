@@ -26,7 +26,7 @@ const aboutDetails = [
 export function AboutSection() {
   return (
     <section
-      id="about"
+      id="team"
       className="relative flex min-h-screen items-center px-4 py-20 sm:px-6 md:py-32"
     >
       <div className="container relative z-10 mx-auto max-w-6xl">

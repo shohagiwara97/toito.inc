@@ -219,16 +219,16 @@ export function ContactSection() {
             <Link href="/#home" className="hover:text-white transition-colors">
               HOME
             </Link>
-            <Link href="/#news" className="hover:text-white transition-colors">
+            <Link href="/#info" className="hover:text-white transition-colors">
               INFO
             </Link>
             <Link href="/#service" className="hover:text-white transition-colors">
               SERVICE
             </Link>
             <Link href="/works" className="hover:text-white transition-colors">
-              WORK
+              WORKS
             </Link>
-            <Link href="/#about" className="hover:text-white transition-colors">
+            <Link href="/#team" className="hover:text-white transition-colors">
               TEAM
             </Link>
             <Link href="/#contact" className="hover:text-white transition-colors">
