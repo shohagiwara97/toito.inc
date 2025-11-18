@@ -49,7 +49,7 @@ export function HomeSection() {
             SCROLL
           </p>
           <div 
-            className="w-[1px] h-20"
+            className="w-[1px] h-16"
             style={{
               background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%)'
             }}
