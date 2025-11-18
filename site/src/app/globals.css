@@ -246,6 +246,13 @@ html {
   .animate-float {
     animation: none;
   }
+  
+  /* HOMEセクション内のすべてのアニメーションを無効化 */
+  #home * {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 /* Subtle zoom on hover */

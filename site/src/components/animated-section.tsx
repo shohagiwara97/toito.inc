@@ -19,7 +19,7 @@ export function AnimatedSection({
   style,
   ...rest
 }: AnimatedSectionProps) {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true); // デフォルトをtrueに設定してSSR対応
   const { elementRef, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export function AnimatedSection({
   const getAnimationClass = () => {
     // モバイルでdisableMobileがtrueの場合、アニメーションを無効化
     if (disableMobile && isMobile) {
-      return 'opacity-100 translate-y-0 translate-x-0 scale-100';
+      return 'opacity-100 translate-y-0 translate-x-0 scale-100 !transition-none';
     }
     
     const baseClass = 'transition-all duration-1000 ease-out';
