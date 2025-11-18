@@ -44,12 +44,12 @@ export function HomeSection() {
         <div className="flex flex-col items-center gap-8">
           <p 
             className="text-white tracking-widest vertical-text rotate-180"
-            style={{ fontSize: '10px', letterSpacing: '0.2em' }}
+            style={{ fontSize: '8px', letterSpacing: '0.15em' }}
           >
             SCROLL
           </p>
           <div 
-            className="w-[1px] h-16"
+            className="w-[0.5px] h-32"
             style={{
               background: 'linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%)'
             }}

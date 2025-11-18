@@ -53,11 +53,11 @@ export function HomeSection() {
         style={{ zIndex: 100 }}
       >
         <div className="flex flex-col items-center gap-12">
-          <p className="text-[20px] tracking-[0.4em] text-white/80 vertical-text rotate-180">
+          <p className="text-[12px] tracking-[0.3em] text-white/80 vertical-text rotate-180">
             SCROLL
           </p>
           <div
-            className="h-24 w-1.5"
+            className="h-48 w-0.5"
             style={{
               background:
                 "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%)"
