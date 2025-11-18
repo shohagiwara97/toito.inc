@@ -24,11 +24,18 @@ export function Header() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="text-white tracking-[0.4em]"
+            className="text-white tracking-[0.3em] font-light hover:opacity-80 transition-all duration-300"
             style={{ 
-              fontFamily: "Georgia, serif", 
-              letterSpacing: "0.3em",
-              textShadow: "0 0 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)"
+              fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif", 
+              fontSize: "22px",
+              fontWeight: "300",
+              letterSpacing: "0.25em",
+              textTransform: "lowercase",
+              textShadow: "0 1px 3px rgba(0,0,0,0.5), 0 0 12px rgba(255,255,255,0.1)",
+              background: "linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text"
             }}
             onClick={handleClose}
           >
