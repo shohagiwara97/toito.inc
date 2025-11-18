@@ -1,0 +1,6 @@
+{
+  "installCommand": "if [ -d site ]; then cd site && npm install; else npm install; fi",
+  "buildCommand": "if [ -d site ]; then cd site && npm run build && rm -rf ../.next && cp -R .next ../.next; else npm run build; fi",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
+}
