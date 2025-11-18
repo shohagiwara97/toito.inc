@@ -159,7 +159,7 @@ export default function WorksPage() {
                 HOME
               </a>
               <span className="mx-2">{">"}</span>
-              <span className="text-black">NEWS</span>
+              <span className="text-black">WORK</span>
             </nav>
           </div>
         </div>

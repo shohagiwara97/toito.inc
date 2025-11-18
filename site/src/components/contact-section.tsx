@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from "react";
+import Link from "next/link";
 
 import { Checkbox } from "./ui/checkbox";
 import { Input } from "./ui/input";
@@ -215,31 +216,28 @@ export function ContactSection() {
 
         <footer className="mt-16 border-t border-white/10 pt-10 text-center lg:mt-20 lg:border-white/20 lg:pt-12">
           <nav className="mb-6 flex flex-wrap justify-center gap-4 text-xs uppercase tracking-[0.3em] text-white/60 lg:gap-6 lg:text-sm lg:tracking-normal lg:text-white lg:normal-case">
-            <a href="#home" className="hover:text-white">
+            <Link href="/#home" className="hover:text-white transition-colors">
               HOME
-            </a>
-            <a href="#news" className="hover:text-white">
+            </Link>
+            <Link href="/#news" className="hover:text-white transition-colors">
               INFO
-            </a>
-            <a href="#service" className="hover:text-white">
+            </Link>
+            <Link href="/#service" className="hover:text-white transition-colors">
               SERVICE
-            </a>
-            <a href="/works" className="hover:text-white">
+            </Link>
+            <Link href="/works" className="hover:text-white transition-colors">
               WORK
-            </a>
-            <a href="#recruit" className="hover:text-white">
-              RECRUIT
-            </a>
-            <a href="#about" className="hover:text-white">
+            </Link>
+            <Link href="/#about" className="hover:text-white transition-colors">
               TEAM
-            </a>
-            <a href="#contact" className="hover:text-white">
+            </Link>
+            <Link href="/#contact" className="hover:text-white transition-colors">
               CONTACT
-            </a>
+            </Link>
           </nav>
-          <a href="#" className="mb-3 block text-white text-sm hover:opacity-70">
+          <Link href="#" className="mb-3 block text-white text-sm hover:opacity-70 transition-opacity">
             PRIVACY POLICY
-          </a>
+          </Link>
           <p className="text-white/70 text-sm">(c)2024 toito.inc</p>
         </footer>
       </div>

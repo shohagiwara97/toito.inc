@@ -356,7 +356,7 @@ html {
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform-style: preserve-3d;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  min-height: 400px;
+  height: 400px;
   display: flex;
   flex-direction: column;
 }
@@ -460,7 +460,8 @@ html {
   background: white;
   position: relative;
   z-index: 2;
-  flex: 1;
+  height: 100px;
+  flex: 0 0 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -477,6 +478,9 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
   transition: color 0.3s ease;
+  height: 50px;
+  min-height: 50px;
+  max-height: 50px;
 }
 
 .works-card:hover .works-card-title {
@@ -503,12 +507,19 @@ html {
     gap: 20px;
   }
   
+  .works-card {
+    height: 320px;
+  }
+  
   .works-card-image-container {
     height: 200px;
+    aspect-ratio: unset;
   }
   
   .works-card-content {
     padding: 16px;
+    height: 120px;
+    flex: 0 0 120px;
   }
 }
 
