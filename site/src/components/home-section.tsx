@@ -23,7 +23,12 @@ export function HomeSection() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection animation="fadeUp" delay={600} data-what-we-do-container className="transition-all duration-300">
+      <AnimatedSection 
+        animation="fadeUp" 
+        delay={600} 
+        className="transition-all duration-300"
+        data-what-we-do-container={true}
+      >
         <div 
           data-what-we-do-block
           className="container relative z-10 mx-auto px-6 pt-12 pb-12 sm:pt-16 sm:pb-16 lg:pt-24 lg:pb-20"
@@ -53,7 +58,7 @@ export function HomeSection() {
             SCROLL
           </p>
           <div
-            className="h-48 w-2"
+            className="h-32 w-2"
             style={{
               background:
                 "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0) 100%)"
