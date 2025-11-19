@@ -45,9 +45,9 @@ export function HomeSection() {
     transitionDelay: `${delay}ms`
   });
 
-  const heroLineClass = heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4";
-  const heroBlockClass = heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
-  const infoBlockClass = infoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
+  const heroLineClass = heroVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8";
+  const heroBlockClass = heroVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12";
+  const infoBlockClass = infoVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12";
 
   return (
     <section
