@@ -19,6 +19,7 @@ export function HomeSection() {
   const getAnimationStyle = (delay: number) => ({
     transitionDelay: `${delay}ms`
   });
+  const blockClass = isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
 
   return (
     <section
@@ -26,7 +27,10 @@ export function HomeSection() {
       className="relative overflow-hidden px-4 pb-16 pt-24 text-white sm:px-6 lg:px-12 lg:pb-20 lg:pt-28"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
-      <div className="relative mx-auto flex max-w-3xl flex-col gap-3 text-left">
+      <div
+        className={`${blockClass} relative ml-0 flex w-full max-w-3xl flex-col gap-3 text-left transition-all duration-800 ease-out`}
+        style={getAnimationStyle(0)}
+      >
         <div className="flex flex-col gap-2 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
           {headingLines.map((line, index) => (
             <span
@@ -49,7 +53,8 @@ export function HomeSection() {
       <div
         data-what-we-do-container="true"
         data-what-we-do-block="true"
-        className="mx-auto mt-16 max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm sm:px-10 lg:mt-20"
+        className={`${blockClass} mx-auto mt-16 max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm transition-all duration-800 ease-out sm:px-10 lg:mt-20`}
+        style={getAnimationStyle(350)}
       >
         <div data-what-we-do-section>
           <h2 className="mb-6 text-[clamp(30px,8vw,64px)] leading-tight tracking-tight text-white">
