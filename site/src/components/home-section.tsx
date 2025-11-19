@@ -1,25 +1,40 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const headingLines = [
   "テクノロジーで人々の記憶に残る",
   "新しいストーリー体験を発明する"
 ];
 
-export function HomeSection() {
-  const [heroVisible, setHeroVisible] = useState(false);
-  const [infoVisible, setInfoVisible] = useState(false);
+function useInViewAnimation<T extends HTMLElement>(threshold = 0.2) {
+  const ref = useRef<T | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const heroTimer = setTimeout(() => setHeroVisible(true), 50);
-    const infoTimer = setTimeout(() => setInfoVisible(true), 350);
+    const node = ref.current;
+    if (!node) return;
 
-    return () => {
-      clearTimeout(heroTimer);
-      clearTimeout(infoTimer);
-    };
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  return { ref, isVisible };
+}
+
+export function HomeSection() {
+  const { ref: heroRef, isVisible: heroVisible } = useInViewAnimation<HTMLDivElement>(0.35);
+  const { ref: infoRef, isVisible: infoVisible } = useInViewAnimation<HTMLDivElement>(0.25);
 
   const getAnimationStyle = (delay: number) => ({
     transitionDelay: `${delay}ms`
@@ -36,6 +51,7 @@ export function HomeSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
       <div
+        ref={heroRef}
         className={`${heroBlockClass} relative ml-0 flex w-full max-w-3xl flex-col gap-3 text-left transition-all duration-800 ease-out`}
       >
         <div className="flex flex-col gap-2 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
@@ -58,6 +74,7 @@ export function HomeSection() {
       </div>
 
       <div
+        ref={infoRef}
         data-what-we-do-container="true"
         data-what-we-do-block="true"
         className={`${infoBlockClass} mx-auto mt-16 max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm transition-all duration-800 ease-out sm:px-10 lg:mt-20`}

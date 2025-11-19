@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ImageWithFallback } from "./figma/image-with-fallback";
 
 const newsItems = [
@@ -55,10 +55,24 @@ const categories = ["All", "社員インタビュー", "事例紹介"];
 export function NewsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 100);
-    return () => clearTimeout(timer);
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
   }, []);
 
   const animationClass = isVisible
@@ -75,6 +89,7 @@ export function NewsSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="info"
       className="relative bg-white py-16 px-4 sm:px-6 lg:px-10 lg:py-24"
     >
