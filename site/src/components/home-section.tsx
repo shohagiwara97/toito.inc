@@ -33,8 +33,13 @@ function useInViewAnimation<T extends HTMLElement>(threshold = 0.2) {
 }
 
 export function HomeSection() {
-  const { ref: heroRef, isVisible: heroVisible } = useInViewAnimation<HTMLDivElement>(0.35);
+  const [heroVisible, setHeroVisible] = useState(false);
   const { ref: infoRef, isVisible: infoVisible } = useInViewAnimation<HTMLDivElement>(0.25);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setHeroVisible(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   const getAnimationStyle = (delay: number) => ({
     transitionDelay: `${delay}ms`
@@ -51,7 +56,6 @@ export function HomeSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
       <div
-        ref={heroRef}
         className={`${heroBlockClass} relative ml-0 flex w-full max-w-3xl flex-col gap-3 text-left transition-all duration-800 ease-out`}
       >
         <div className="flex flex-col gap-2 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
