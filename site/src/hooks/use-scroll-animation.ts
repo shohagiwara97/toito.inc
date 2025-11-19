@@ -7,12 +7,35 @@ interface UseScrollAnimationOptions {
   rootMargin?: string;
 }
 
+declare global {
+  interface Window {
+    __toitoLoadingComplete?: boolean;
+  }
+}
+
 export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
   const [isVisible, setIsVisible] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [isReady, setIsReady] = useState(
+    () => typeof window !== 'undefined' && window.__toitoLoadingComplete === true
+  );
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (window.__toitoLoadingComplete) {
+      setIsReady(true);
+      return;
+    }
+
+    const handleReady = () => setIsReady(true);
+    window.addEventListener('toito-loading-complete', handleReady);
+    return () => window.removeEventListener('toito-loading-complete', handleReady);
+  }, []);
+
+  useEffect(() => {
+    if (!isReady) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -26,16 +49,18 @@ export function useScrollAnimation(options: UseScrollAnimationOptions = {}) {
       }
     );
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
+    const node = elementRef.current;
+    if (node) {
+      observer.observe(node);
     }
 
     return () => {
-      if (elementRef.current) {
-        observer.unobserve(elementRef.current);
+      if (node) {
+        observer.unobserve(node);
       }
+      observer.disconnect();
     };
-  }, [hasAnimated, options.threshold, options.rootMargin]);
+  }, [hasAnimated, isReady, options.threshold, options.rootMargin]);
 
   return { elementRef, isVisible, hasAnimated };
 }

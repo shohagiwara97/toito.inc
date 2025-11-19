@@ -2,6 +2,12 @@
 
 import { useEffect, useState } from 'react';
 
+declare global {
+  interface Window {
+    __toitoLoadingComplete?: boolean;
+  }
+}
+
 export function LoadingScreen() {
   const [isLoading, setIsLoading] = useState(true);
   const [progress, setProgress] = useState(0);
@@ -20,6 +26,13 @@ export function LoadingScreen() {
 
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (!isLoading && typeof window !== 'undefined') {
+      window.__toitoLoadingComplete = true;
+      window.dispatchEvent(new Event('toito-loading-complete'));
+    }
+  }, [isLoading]);
 
   if (!isLoading) return null;
 

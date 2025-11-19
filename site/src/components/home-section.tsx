@@ -15,16 +15,17 @@ export function HomeSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
 
-      <div className="flex flex-1 flex-col justify-start gap-16">
-        <AnimatedSection
-          animation="slideLeft"
-          className="relative ml-0 flex w-full max-w-3xl flex-col gap-4 text-left"
-        >
-          <div className="flex flex-col gap-3 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
-            {headingLines.map((line, index) => (
-              <AnimatedSection
-                key={line}
-                animation="slideLeft"
+      <div className="flex flex-1 flex-col justify-between">
+        <div className="flex flex-col gap-16">
+          <AnimatedSection
+            animation="slideLeft"
+            className="relative ml-0 flex w-full max-w-3xl flex-col gap-4 text-left"
+          >
+            <div className="flex flex-col gap-3 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
+              {headingLines.map((line, index) => (
+                <AnimatedSection
+                  key={line}
+                  animation="slideLeft"
                 delay={index * 180}
                 className="block"
               >
@@ -33,39 +34,40 @@ export function HomeSection() {
             ))}
           </div>
 
-          <AnimatedSection
-            animation="slideLeft"
-            delay={headingLines.length * 180 + 240}
-          >
-            <p className="text-[13px] leading-relaxed text-white/80 sm:text-base">
-              Inventing innovative and memorable storytelling experiences through technology.
-            </p>
+            <AnimatedSection
+              animation="slideLeft"
+              delay={headingLines.length * 180 + 240}
+            >
+              <p className="text-[13px] leading-relaxed text-white/80 sm:text-base">
+                Inventing innovative and memorable storytelling experiences through technology.
+              </p>
+            </AnimatedSection>
           </AnimatedSection>
-        </AnimatedSection>
 
-        <AnimatedSection
-          animation="slideRight"
-          delay={260}
-          data-what-we-do-container="true"
-          data-what-we-do-block="true"
-          className="mx-auto max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm sm:px-10"
-        >
-          <div data-what-we-do-section>
-            <h2 className="mb-6 text-[clamp(30px,8vw,64px)] leading-tight tracking-tight text-white">
-              WHAT WE DO
-            </h2>
-            <div className="space-y-3 text-sm leading-relaxed text-white/90 sm:text-base sm:leading-loose">
-              <p>toito.incは東京を拠点とする体験型エンターテイメント カンパニー。</p>
-              <p>デジタルテクノロジーを駆使して没入・体験型コンテンツを開発し、</p>
-              <p>それらを体験できる空間やイベントを世界中で展開していきます。</p>
+          <AnimatedSection
+            animation="slideRight"
+            delay={260}
+            data-what-we-do-container="true"
+            data-what-we-do-block="true"
+            className="mx-auto max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm sm:px-10"
+          >
+            <div data-what-we-do-section>
+              <h2 className="mb-6 text-[clamp(30px,8vw,64px)] leading-tight tracking-tight text-white">
+                WHAT WE DO
+              </h2>
+              <div className="space-y-3 text-sm leading-relaxed text-white/90 sm:text-base sm:leading-loose">
+                <p>toito.incは東京を拠点とする体験型エンターテイメント カンパニー。</p>
+                <p>デジタルテクノロジーを駆使して没入・体験型コンテンツを開発し、</p>
+                <p>それらを体験できる空間やイベントを世界中で展開していきます。</p>
+              </div>
             </div>
-          </div>
-        </AnimatedSection>
-      </div>
+          </AnimatedSection>
+        </div>
 
-      <div className="mt-2 flex justify-center">
-        <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm">
-          SCROLL DOWN ↓↓
+        <div className="pb-8 flex justify-center">
+          <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm">
+            SCROLL DOWN ↓↓
+          </div>
         </div>
       </div>
     </section>
