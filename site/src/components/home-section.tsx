@@ -33,21 +33,52 @@ function useInViewAnimation<T extends HTMLElement>(threshold = 0.2) {
 }
 
 export function HomeSection() {
-  const [heroVisible, setHeroVisible] = useState(false);
+  const [blockVisible, setBlockVisible] = useState(false);
+  const [lineVisibilities, setLineVisibilities] = useState(
+    () => headingLines.map(() => false)
+  );
+  const [taglineVisible, setTaglineVisible] = useState(false);
   const { ref: infoRef, isVisible: infoVisible } = useInViewAnimation<HTMLDivElement>(0.25);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => setHeroVisible(true));
-    return () => cancelAnimationFrame(frame);
+    const timers: Array<ReturnType<typeof setTimeout>> = [];
+
+    timers.push(setTimeout(() => setBlockVisible(true), 40));
+
+    headingLines.forEach((_, index) => {
+      timers.push(
+        setTimeout(() => {
+          setLineVisibilities((previous) => {
+            if (previous[index]) return previous;
+            const next = [...previous];
+            next[index] = true;
+            return next;
+          });
+        }, 200 + index * 160)
+      );
+    });
+
+    timers.push(
+      setTimeout(
+        () => setTaglineVisible(true),
+        200 + headingLines.length * 160 + 200
+      )
+    );
+
+    return () => {
+      timers.forEach(clearTimeout);
+    };
   }, []);
 
   const getAnimationStyle = (delay: number) => ({
     transitionDelay: `${delay}ms`
   });
 
-  const heroLineClass = heroVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8";
-  const heroBlockClass = heroVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-12";
+  const heroBlockClass = blockVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-14";
   const infoBlockClass = infoVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12";
+  const getLineClass = (index: number) =>
+    lineVisibilities[index] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10";
+  const taglineClass = taglineVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8";
 
   return (
     <section
@@ -62,16 +93,16 @@ export function HomeSection() {
           {headingLines.map((line, index) => (
             <span
               key={line}
-              className={`${heroLineClass} block transition-all duration-700 ease-out`}
-              style={getAnimationStyle(index * 150)}
+              className={`${getLineClass(index)} block transition-all duration-700 ease-out`}
+              style={getAnimationStyle(index * 120)}
             >
               {line}
             </span>
           ))}
         </div>
         <p
-          className={`${heroLineClass} text-[13px] leading-relaxed text-white/80 transition-all duration-700 ease-out sm:text-base`}
-          style={getAnimationStyle(headingLines.length * 150)}
+          className={`${taglineClass} text-[13px] leading-relaxed text-white/80 transition-all duration-700 ease-out sm:text-base`}
+          style={getAnimationStyle(headingLines.length * 120 + 100)}
         >
           Inventing innovative and memorable storytelling experiences through technology.
         </p>
