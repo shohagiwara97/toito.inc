@@ -196,6 +196,25 @@ html {
   text-orientation: mixed;
 }
 
+.scroll-indicator {
+  animation: scrollIndicatorBounce 1.4s ease-in-out infinite;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes scrollIndicatorBounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
