@@ -1,7 +1,6 @@
 import { AboutSection } from "@/components/about-section";
 import { AdBanner } from "@/components/ad-banner";
 import { ContactSection } from "@/components/contact-section";
-import { FloatingTextTransition } from "@/components/floating-text-transition";
 import { Header } from "@/components/header";
 import { HomeSection } from "@/components/home-section";
 import { NewsSection } from "@/components/news-section";
@@ -20,7 +19,6 @@ export default function Page() {
       }}
     >
       <Header />
-      <FloatingTextTransition />
       <main className="flex flex-col gap-0">
         <HomeSection />
         <NewsSection />

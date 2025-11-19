@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { ImageWithFallback } from "./figma/image-with-fallback";
-import { AnimatedSection } from "./animated-section";
 
 const newsItems = [
   {
@@ -66,17 +65,15 @@ export function NewsSection() {
       className="relative bg-white py-16 px-4 sm:px-6 lg:px-10 lg:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <AnimatedSection animation="fadeUp">
-          <div className="space-y-4">
-            <p className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-[#d10000]">
-              INFO
-            </p>
-            <p className="text-lg text-gray-500">私たちの思考やアイディア</p>
-          </div>
-        </AnimatedSection>
+        <div className="space-y-4">
+          <p className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-[#d10000]">
+            INFO
+          </p>
+          <p className="text-lg text-gray-500">私たちの思考やアイディア</p>
+        </div>
 
         <div className="mt-16 flex flex-col gap-12 lg:flex-row">
-          <AnimatedSection className="lg:w-1/4" animation="fadeUp" delay={150}>
+          <div className="lg:w-1/4">
             <p className="text-xs uppercase tracking-[0.5em] text-gray-400">
               Category
             </p>
@@ -89,7 +86,7 @@ export function NewsSection() {
                     type="button"
                     aria-pressed={isActive}
                     onClick={() => setSelectedCategory(category)}
-                    className={`flex items-center gap-4 text-base transition-colors ${
+                    className={`flex items-center gap-4 text-base ${
                       isActive
                         ? "text-[#d10000]"
                         : "text-gray-400 hover:text-gray-600"
@@ -111,18 +108,16 @@ export function NewsSection() {
                 );
               })}
             </div>
-          </AnimatedSection>
+          </div>
 
           <div className="flex-1">
             <div className="md:hidden">
-              {filteredNews.map((item, index) => (
-                <AnimatedSection
+              {filteredNews.map((item) => (
+                <article
                   key={item.id}
-                  animation="fadeUp"
-                  delay={index * 120}
                   className="border-b border-gray-200 py-8 first:pt-0 last:border-b-0 last:pb-0"
                 >
-                  <article className="group flex items-stretch gap-6">
+                  <div className="flex items-stretch gap-6">
                     <div className="flex min-w-0 flex-1 flex-col gap-3">
                       <div className="flex flex-wrap items-center gap-3 text-xs">
                         <span className="text-sm font-semibold tracking-wide text-gray-900">
@@ -140,47 +135,44 @@ export function NewsSection() {
                       <ImageWithFallback
                         src={item.image}
                         alt={item.title}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                        className="h-full w-full object-cover"
                       />
                     </div>
-                  </article>
-                </AnimatedSection>
+                  </div>
+                </article>
               ))}
             </div>
 
             <div className="hidden gap-12 md:grid md:grid-cols-2">
-              {filteredNews.map((item, index) => (
-                <AnimatedSection
+              {filteredNews.map((item) => (
+                <article
                   key={item.id}
-                  animation="fadeUp"
-                  delay={index * 120}
+                  className="flex h-full min-h-[520px] flex-col cursor-pointer md:min-h-[560px]"
                 >
-                  <article className="group flex h-full min-h-[520px] flex-col cursor-pointer md:min-h-[560px]">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-gray-100">
-                      <ImageWithFallback
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                      />
+                  <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-gray-100">
+                    <ImageWithFallback
+                      src={item.image}
+                      alt={item.title}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <div className="mt-6 flex flex-1 flex-col space-y-3">
+                    <div className="flex flex-wrap items-center gap-3 text-sm">
+                      <span className="font-semibold tracking-wide">
+                        {item.date}
+                      </span>
+                      <span className="rounded-full bg-gray-900 px-3 py-1 text-xs uppercase tracking-wide text-white">
+                        {item.category}
+                      </span>
                     </div>
-                    <div className="mt-6 flex flex-1 flex-col space-y-3">
-                      <div className="flex flex-wrap items-center gap-3 text-sm">
-                        <span className="font-semibold tracking-wide">
-                          {item.date}
-                        </span>
-                        <span className="rounded-full bg-gray-900 px-3 py-1 text-xs uppercase tracking-wide text-white">
-                          {item.category}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-medium leading-snug text-gray-900">
-                        {item.title}
-                      </h3>
-                      <p className="mt-auto text-sm leading-relaxed text-gray-500">
-                        {item.description}
-                      </p>
-                    </div>
-                  </article>
-                </AnimatedSection>
+                    <h3 className="text-2xl font-medium leading-snug text-gray-900">
+                      {item.title}
+                    </h3>
+                    <p className="mt-auto text-sm leading-relaxed text-gray-500">
+                      {item.description}
+                    </p>
+                  </div>
+                </article>
               ))}
             </div>
 
