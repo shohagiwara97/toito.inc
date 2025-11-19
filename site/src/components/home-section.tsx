@@ -63,7 +63,7 @@ export function HomeSection() {
         </AnimatedSection>
       </div>
 
-      <div className="mt-6 flex justify-center">
+      <div className="mt-2 flex justify-center">
         <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm">
           SCROLL DOWN ↓↓
         </div>
