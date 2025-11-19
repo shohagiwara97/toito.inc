@@ -8,18 +8,26 @@ const headingLines = [
 ];
 
 export function HomeSection() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
+  const [infoVisible, setInfoVisible] = useState(false);
 
   useEffect(() => {
-    const frame = requestAnimationFrame(() => setIsVisible(true));
-    return () => cancelAnimationFrame(frame);
+    const heroTimer = setTimeout(() => setHeroVisible(true), 50);
+    const infoTimer = setTimeout(() => setInfoVisible(true), 350);
+
+    return () => {
+      clearTimeout(heroTimer);
+      clearTimeout(infoTimer);
+    };
   }, []);
 
-  const animationClass = isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6";
   const getAnimationStyle = (delay: number) => ({
     transitionDelay: `${delay}ms`
   });
-  const blockClass = isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
+
+  const heroLineClass = heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4";
+  const heroBlockClass = heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
+  const infoBlockClass = infoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10";
 
   return (
     <section
@@ -28,14 +36,13 @@ export function HomeSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
       <div
-        className={`${blockClass} relative ml-0 flex w-full max-w-3xl flex-col gap-3 text-left transition-all duration-800 ease-out`}
-        style={getAnimationStyle(0)}
+        className={`${heroBlockClass} relative ml-0 flex w-full max-w-3xl flex-col gap-3 text-left transition-all duration-800 ease-out`}
       >
         <div className="flex flex-col gap-2 text-[clamp(20px,6vw,42px)] font-light leading-relaxed">
           {headingLines.map((line, index) => (
             <span
               key={line}
-              className={`${animationClass} block transition-all duration-700 ease-out`}
+              className={`${heroLineClass} block transition-all duration-700 ease-out`}
               style={getAnimationStyle(index * 150)}
             >
               {line}
@@ -43,7 +50,7 @@ export function HomeSection() {
           ))}
         </div>
         <p
-          className={`${animationClass} text-[13px] leading-relaxed text-white/80 transition-all duration-700 ease-out sm:text-base`}
+          className={`${heroLineClass} text-[13px] leading-relaxed text-white/80 transition-all duration-700 ease-out sm:text-base`}
           style={getAnimationStyle(headingLines.length * 150)}
         >
           Inventing innovative and memorable storytelling experiences through technology.
@@ -53,8 +60,7 @@ export function HomeSection() {
       <div
         data-what-we-do-container="true"
         data-what-we-do-block="true"
-        className={`${blockClass} mx-auto mt-16 max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm transition-all duration-800 ease-out sm:px-10 lg:mt-20`}
-        style={getAnimationStyle(350)}
+        className={`${infoBlockClass} mx-auto mt-16 max-w-5xl rounded-3xl bg-black/40 px-6 py-10 text-center backdrop-blur-sm transition-all duration-800 ease-out sm:px-10 lg:mt-20`}
       >
         <div data-what-we-do-section>
           <h2 className="mb-6 text-[clamp(30px,8vw,64px)] leading-tight tracking-tight text-white">
