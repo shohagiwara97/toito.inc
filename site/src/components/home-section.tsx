@@ -64,10 +64,17 @@ export function HomeSection() {
           </AnimatedSection>
         </div>
 
-        <div className="pb-8 flex justify-center">
-          <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm">
+        <div className="pb-8 flex justify-center lg:pb-8">
+          <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm lg:block hidden">
             SCROLL DOWN ↓↓
           </div>
+        </div>
+      </div>
+
+      {/* Mobile scroll indicator positioned higher */}
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex justify-center lg:hidden">
+        <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80">
+          SCROLL DOWN ↓↓
         </div>
       </div>
     </section>
