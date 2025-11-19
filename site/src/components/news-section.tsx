@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ImageWithFallback } from "./figma/image-with-fallback";
 
 const newsItems = [
@@ -54,6 +54,20 @@ const categories = ["All", "社員インタビュー", "事例紹介"];
 
 export function NewsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const animationClass = isVisible
+    ? "opacity-100 translate-y-0"
+    : "opacity-0 translate-y-6";
+  const getStyle = (delay: number) => ({
+    transitionDelay: `${delay}ms`
+  });
+
   const filteredNews =
     selectedCategory === "All"
       ? newsItems
@@ -65,7 +79,10 @@ export function NewsSection() {
       className="relative bg-white py-16 px-4 sm:px-6 lg:px-10 lg:py-24"
     >
       <div className="mx-auto max-w-6xl">
-        <div className="space-y-4">
+        <div
+          className={`${animationClass} space-y-4 transition-all duration-700 ease-out`}
+          style={getStyle(0)}
+        >
           <p className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-[#d10000]">
             INFO
           </p>
@@ -73,7 +90,10 @@ export function NewsSection() {
         </div>
 
         <div className="mt-16 flex flex-col gap-12 lg:flex-row">
-          <div className="lg:w-1/4">
+          <div
+            className={`${animationClass} lg:w-1/4 transition-all duration-700 ease-out`}
+            style={getStyle(150)}
+          >
             <p className="text-xs uppercase tracking-[0.5em] text-gray-400">
               Category
             </p>
@@ -110,12 +130,16 @@ export function NewsSection() {
             </div>
           </div>
 
-          <div className="flex-1">
+          <div
+            className={`${animationClass} flex-1 transition-all duration-700 ease-out`}
+            style={getStyle(200)}
+          >
             <div className="md:hidden">
-              {filteredNews.map((item) => (
+              {filteredNews.map((item, index) => (
                 <article
                   key={item.id}
-                  className="border-b border-gray-200 py-8 first:pt-0 last:border-b-0 last:pb-0"
+                  className={`${animationClass} border-b border-gray-200 py-8 transition-all duration-700 ease-out first:pt-0 last:border-b-0 last:pb-0`}
+                  style={getStyle(250 + index * 80)}
                 >
                   <div className="flex items-stretch gap-6">
                     <div className="flex min-w-0 flex-1 flex-col gap-3">
@@ -144,10 +168,11 @@ export function NewsSection() {
             </div>
 
             <div className="hidden gap-12 md:grid md:grid-cols-2">
-              {filteredNews.map((item) => (
+              {filteredNews.map((item, index) => (
                 <article
                   key={item.id}
-                  className="flex h-full min-h-[520px] flex-col cursor-pointer md:min-h-[560px]"
+                  className={`${animationClass} flex h-full min-h-[520px] flex-col cursor-pointer transition-all duration-700 ease-out md:min-h-[560px]`}
+                  style={getStyle(250 + index * 80)}
                 >
                   <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-gray-100">
                     <ImageWithFallback
@@ -176,7 +201,10 @@ export function NewsSection() {
               ))}
             </div>
 
-            <div className="mt-12 flex items-center gap-4 text-sm tracking-[0.4em] text-gray-400">
+            <div
+              className={`${animationClass} mt-12 flex items-center gap-4 text-sm tracking-[0.4em] text-gray-400 transition-all duration-700 ease-out`}
+              style={getStyle(400)}
+            >
               {[1, 2, 3].map((page) => (
                 <button
                   key={page}
