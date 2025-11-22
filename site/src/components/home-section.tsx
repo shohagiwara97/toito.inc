@@ -11,7 +11,7 @@ export function HomeSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-[110vh] flex-col overflow-hidden px-4 pb-16 pt-24 text-white sm:px-6 lg:px-12 lg:pb-20 lg:pt-32"
+      className="relative flex min-h-screen flex-col overflow-hidden px-4 pb-16 pt-24 text-white sm:px-6 lg:px-12 lg:pb-20 lg:pt-32"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
 
@@ -64,18 +64,6 @@ export function HomeSection() {
           </AnimatedSection>
         </div>
 
-        <div className="pb-8 flex justify-center lg:pb-8">
-          <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80 sm:text-sm lg:block hidden">
-            SCROLL DOWN ↓↓
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile scroll indicator positioned higher */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex justify-center lg:hidden">
-        <div className="scroll-indicator rounded-full border border-white/40 px-6 py-2 text-xs tracking-[0.4em] text-white/80">
-          SCROLL DOWN ↓↓
-        </div>
       </div>
     </section>
   );
