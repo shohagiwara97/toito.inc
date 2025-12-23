@@ -29,7 +29,7 @@ export const infoItems: InfoItem[] = [
       "自社IPを活用し、物語・キャラクター・空間演出を一体化したショーケースを制作。ブランド基盤とファンコミュニティを同時に育成した事例。",
     category: "事例紹介",
     image:
-      "https://via.placeholder.com/1200x800/cccccc/000000?text=Dummy",
+      "/info/original_ip.png",
     detail: {
       lead:
         "オリジナルIPの創出を事業の中核とし、世界観を維持したままリアルとデジタル双方で没入体験を提供。ショーケース形式で反復開催し、ファン接点の継続化に成功しました。",
@@ -74,7 +74,7 @@ export const infoItems: InfoItem[] = [
       "既存IPのライセンス統制とEC・イベントを組み合わせた収益多角化を設計。審査フローとD2C運用を同時に立ち上げた事例。",
     category: "事例紹介",
     image:
-      "https://via.placeholder.com/1200x800/cccccc/000000?text=Dummy",
+      "/info/ip_business.png",
     detail: {
       lead:
         "ライセンス戦略、パートナー審査、EC連動イベントを一気通貫で立ち上げ、既存IPの収益ポートフォリオを再設計。権利管理の厳格化とブランド体験の統一を両立しました。",
@@ -119,7 +119,7 @@ export const infoItems: InfoItem[] = [
       "都市型ロケーションで開催した没入イベントを、演出から動線・安全管理まで標準化。再演パッケージ化で多都市展開の再現性を確保した事例。",
     category: "事例紹介",
     image:
-      "https://via.placeholder.com/1200x800/cccccc/000000?text=Dummy",
+      "/info/immersive_event.png",
     detail: {
       lead:
         "空間演出・運営導線・安全管理を統合した都市型没入イベントを実施。スポンサー協業を含めたオペレーションを標準化し、再演時の立ち上げ速度を高めました。",
@@ -164,7 +164,7 @@ export const infoItems: InfoItem[] = [
       "エンタメ視点のUX設計と事業検証を伴走する共創プログラムの2026年募集を開始。リサーチからPoCまでを短期スプリントで支援します。",
     category: "お知らせ",
     image:
-      "https://via.placeholder.com/1200x800/cccccc/000000?text=Dummy",
+      "/info/consulting.png",
     detail: {
       lead:
         "toito.incが提供する新規事業共創プログラムの2026年枠を募集開始。エンタメの体験設計とデジタル技術を活用し、短期で仮説検証からPoCまで伴走します。",
