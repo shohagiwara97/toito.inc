@@ -7,11 +7,11 @@ export function HomeSection() {
   return (
     <section
       id="home"
-      className="relative flex min-h-screen flex-col overflow-hidden px-4 pb-12 pt-24 text-white sm:px-6 lg:px-12 lg:pb-16 lg:pt-32"
+      className="relative flex min-h-[80vh] flex-col overflow-hidden px-4 pb-10 pt-20 text-white sm:min-h-screen sm:px-6 lg:px-12 lg:pb-16 lg:pt-32"
     >
       <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/20 to-black/40" aria-hidden />
 
-      <div className="relative z-10 flex flex-1 items-center justify-center">
+      <div className="relative z-10 flex flex-1 items-start justify-center pt-4 sm:pt-0">
         <AnimatedSection
           animation="fadeUp"
           delay={120}

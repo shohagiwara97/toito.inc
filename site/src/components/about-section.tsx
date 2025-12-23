@@ -3,22 +3,23 @@ import { AnimatedSection } from './animated-section';
 const aboutDetails = [
   {
     label: "商号",
-    value: ["toito.inc"]
+    value: ["株式会社toito"]
   },
   {
     label: "住所",
-    value: ["東京都渋谷区恵比寿西2丁目4番8号"]
+    value: ["東京都渋谷区神宮前6-29-4　原宿komiyaビル"]
   },
   {
     label: "代表者",
-    value: ["佐田 晋一郎"]
+    value: ["稲生晋之"]
   },
   {
     label: "事業内容",
     value: [
-      "体験型・没入型コンテンツのプロデュース・企画・制作",
-      "体験型プロダクトの開発・空間設計・R&D",
-      "体験型イベントの運営・IPビジネス開発"
+      "IPコンテンツの創出、企画、制作",
+      "IPビジネスの新規事業プロデュース",
+      "イベントの制作、運営、コンサルティング",
+      "その他、新規事業企画、コンサルティング"
     ]
   }
 ];
@@ -26,14 +27,14 @@ const aboutDetails = [
 export function AboutSection() {
   return (
     <section
-      id="team"
+      id="about"
       className="relative flex min-h-screen items-center px-4 py-20 sm:px-6 md:py-32"
     >
       <div className="container relative z-10 mx-auto max-w-6xl">
         <AnimatedSection animation="fadeUp">
           <div className="space-y-4">
             <h2 className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-white">
-              TEAM
+              ABOUT US
             </h2>
             <p className="max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base lg:hidden">
               没入感あるコンテンツを生み出すために、チーム全員がクリエイティブとテクノロジーの

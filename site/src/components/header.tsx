@@ -8,8 +8,7 @@ const menuItems = [
   { name: "HOME", href: "/#home" },
   { name: "INFO", href: "/#info" },
   { name: "SERVICE", href: "/#service" },
-  { name: "WORKS", href: "/works" },
-  { name: "TEAM", href: "/#team" },
+  { name: "ABOUT US", href: "/#about" },
   { name: "CONTACT", href: "/#contact" }
 ];
 

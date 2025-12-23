@@ -225,11 +225,8 @@ export function ContactSection() {
             <Link href="/#service" className="hover:text-white transition-colors">
               SERVICE
             </Link>
-            <Link href="/works" className="hover:text-white transition-colors">
-              WORKS
-            </Link>
-            <Link href="/#team" className="hover:text-white transition-colors">
-              TEAM
+            <Link href="/#about" className="hover:text-white transition-colors">
+              ABOUT US
             </Link>
             <Link href="/#contact" className="hover:text-white transition-colors">
               CONTACT
