@@ -31,14 +31,10 @@ export function ServiceSection() {
       <div className="container mx-auto max-w-6xl">
         <AnimatedSection animation="fadeUp">
           <div className="space-y-4">
-            <p className="text-xs uppercase tracking-[0.6em] text-gray-400 lg:hidden">事業領域</p>
-            <h2 className="text-[clamp(42px,9vw,104px)] leading-none tracking-tight text-[#d10000]">
+            <h2 className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-[#d10000]">
               <span className="lg:hidden">SERVICE</span>
               <span className="hidden lg:inline">SERVICE</span>
             </h2>
-            <p className="max-w-3xl text-sm text-gray-500 sm:text-base lg:hidden">
-              コンテンツ制作から運営、IP開発までをワンストップで支援。スマートフォンでも読みやすいカードレイアウトで、それぞれの強みを直感的に理解できます。
-            </p>
           </div>
         </AnimatedSection>
 

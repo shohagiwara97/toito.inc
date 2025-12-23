@@ -266,15 +266,6 @@ export function FloatingTextTransition() {
             >
               INFO
             </h2>
-            <p 
-              className="text-lg text-white/90"
-              style={{
-                transitionDelay: '300ms',
-                opacity: Math.max(0, infoProgress - 0.3) * 1.5,
-              }}
-            >
-              私たちの思考やアイディア
-            </p>
           </div>
         </div>
       )}

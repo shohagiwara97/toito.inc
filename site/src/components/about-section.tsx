@@ -36,10 +36,6 @@ export function AboutSection() {
             <h2 className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-white">
               ABOUT US
             </h2>
-            <p className="max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base lg:hidden">
-              没入感あるコンテンツを生み出すために、チーム全員がクリエイティブとテクノロジーの
-              ハイブリッドを追求しています。
-            </p>
           </div>
         </AnimatedSection>
 

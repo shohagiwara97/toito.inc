@@ -66,13 +66,9 @@ export function ContactSection() {
     <section id="contact" className="relative bg-black px-4 py-16 sm:px-6 lg:px-6 lg:py-20">
       <div className="container mx-auto max-w-3xl">
         <div className="mb-12 space-y-3 text-center lg:mb-16 lg:space-y-0 lg:text-left">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/50 lg:hidden">Contact</p>
-          <h2 className="text-[clamp(42px,9vw,104px)] leading-none tracking-tight text-white lg:text-[clamp(48px,10vw,104px)]">
+          <h2 className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-white">
             CONTACT
           </h2>
-          <p className="text-sm leading-relaxed text-white/70 sm:text-base lg:hidden">
-            モバイルでも入力しやすい1カラムフォーム。最小限のスクロールで完結できます。
-          </p>
         </div>
 
         <form
@@ -200,7 +196,7 @@ export function ContactSection() {
               className="border-white bg-transparent data-[state=checked]:bg-white data-[state=checked]:text-black"
             />
             <label htmlFor="privacy" className="text-sm text-white/80">
-              プライバシーポリシーに同意して送信する
+              プライバシーポリシーに同意し送信する
             </label>
           </div>
 
@@ -235,7 +231,7 @@ export function ContactSection() {
           <Link href="#" className="mb-3 block text-white text-sm hover:opacity-70 transition-opacity">
             PRIVACY POLICY
           </Link>
-          <p className="text-white/70 text-sm">(c)2024 toito.inc</p>
+          <p className="text-white/70 text-sm">(c)2026 toito.inc</p>
         </footer>
       </div>
     </section>

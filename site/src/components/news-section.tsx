@@ -101,7 +101,6 @@ export function NewsSection() {
           <p className="text-[clamp(48px,10vw,104px)] leading-none tracking-tight text-[#d10000]">
             INFO
           </p>
-          <p className="text-lg text-gray-500">私たちの思考やアイディア</p>
         </div>
 
         <div className="mt-16 flex flex-col gap-12 lg:flex-row">
