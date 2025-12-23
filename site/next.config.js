@@ -7,6 +7,13 @@ const nextConfig = {
         hostname: "images.unsplash.com"
       }
     ]
+  },
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(mp4|mov|avi|webm)$/i,
+      type: "asset/resource"
+    });
+    return config;
   }
 };
 
