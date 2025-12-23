@@ -228,7 +228,7 @@ export function ContactSection() {
               CONTACT
             </Link>
           </nav>
-          <Link href="#" className="mb-3 block text-white text-sm hover:opacity-70 transition-opacity">
+          <Link href="/privacy" className="mb-3 block text-white text-sm hover:opacity-70 transition-opacity">
             PRIVACY POLICY
           </Link>
           <p className="text-white/70 text-sm">(c)2026 toito.inc</p>
