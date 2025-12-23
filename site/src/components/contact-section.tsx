@@ -203,7 +203,7 @@ export function ContactSection() {
           <div className="pt-2 lg:pt-4 lg:flex lg:justify-center">
             <button
               type="submit"
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-white/90 py-4 text-sm font-semibold uppercase tracking-[0.4em] text-black transition hover:bg-white lg:w-auto lg:rounded-md lg:bg-gray-700 lg:px-12 lg:text-white lg:font-normal lg:tracking-normal lg:normal-case"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-white/90 py-4 text-sm font-semibold uppercase tracking-[0.4em] text-black transition hover:bg-white lg:w-auto lg:rounded-md lg:bg-gray-700 lg:px-12 lg:text-white lg:font-normal lg:tracking-normal lg:normal-case lg:hover:bg-gray-600"
             >
               この内容で送信する <span>{">"}</span>
             </button>
