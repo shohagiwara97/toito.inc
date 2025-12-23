@@ -61,7 +61,7 @@ export function AboutSection() {
           </div>
 
           <div className="hidden lg:block">
-            <div className="max-w-3xl">
+            <div className="max-w-3xl rounded-[32px] bg-black/40 p-8 backdrop-blur-sm">
               <table className="w-full text-white">
                 <tbody>
                   {aboutDetails.map((detail, index) => {
