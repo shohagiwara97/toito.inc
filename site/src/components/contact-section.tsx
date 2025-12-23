@@ -186,7 +186,7 @@ export function ContactSection() {
             />
           </div>
 
-          <div className="flex flex-col gap-3 rounded-2xl bg-white/5 p-4 sm:flex-row sm:items-center lg:flex-row lg:items-center lg:gap-3 lg:rounded-none lg:bg-transparent lg:p-0">
+          <div className="flex items-center gap-3 rounded-2xl bg-white/5 p-4 lg:rounded-none lg:bg-transparent lg:p-0">
             <Checkbox
               id="privacy"
               checked={formData.privacyAgreed}
