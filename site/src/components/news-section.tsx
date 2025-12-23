@@ -1,56 +1,9 @@
 'use client';
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { infoItems } from "@/data/info-items";
 import { ImageWithFallback } from "./figma/image-with-fallback";
-
-const newsItems = [
-  {
-    id: 1,
-    date: "2025.04.07",
-    title:
-      "世界初・チリのウニ工場にAI画像認識システムを導入 現地の課題と親身に向き合い最適なソリューションを開発",
-    description:
-      "工場全体を見渡す可視化ダッシュボードとリモート改善チームの連携で、現場負荷を抑えながら品質とスピードを両立。",
-    category: "事例紹介",
-    image:
-      "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: 2,
-    date: "2025.04.07",
-    title:
-      "AI活用で営業計画を効率化 不二家ベトナムが東南アジアで挑む卸売DX",
-    description:
-      "散在していた販売実績と在庫データを一元化し、商談の“気づき”を自動提案。新しい販路開拓とチーム共通言語づくりに挑戦中。",
-    category: "事例紹介",
-    image:
-      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: 3,
-    date: "2024.09.18",
-    title:
-      "EVを導入から管理まで一元的にサポートする『EVolity』誕生 顧客に伴走し柔軟かつスピーディに進むサービス改善",
-    description:
-      "ハードとソフトを分けずに“移動体験”として再設計。開発チームとサポートチームが一体となった改善プロセスを公開。",
-    category: "事例紹介",
-    image:
-      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80"
-  },
-  {
-    id: 4,
-    date: "2024.09.18",
-    title:
-      "顧客価値と向き合うことで生まれた『おまかせEV for Biz』配車・充電マネジメントで法人のEV導入を親身に支援",
-    description:
-      "車両配備、経路最適化、エネルギーマネジメントをワンストップ化。顧客ヒアリングをもとにした最短デリバリー体制が強み。",
-    category: "お知らせ",
-    image:
-      "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
-  }
-];
-
-const categories = ["All", "事例紹介", "お知らせ"];
 
 export function NewsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -82,10 +35,15 @@ export function NewsSection() {
     transitionDelay: `${delay}ms`
   });
 
+  const categories = [
+    "All",
+    ...Array.from(new Set(infoItems.map((item) => item.category)))
+  ];
+
   const filteredNews =
     selectedCategory === "All"
-      ? newsItems
-      : newsItems.filter((item) => item.category === selectedCategory);
+      ? infoItems
+      : infoItems.filter((item) => item.category === selectedCategory);
 
   return (
     <section
@@ -150,12 +108,14 @@ export function NewsSection() {
           >
             <div className="md:hidden">
               {filteredNews.map((item, index) => (
-                <article
+                <Link
                   key={item.id}
-                  className={`${animationClass} border-b border-gray-200 py-8 transition-all duration-700 ease-out first:pt-0 last:border-b-0 last:pb-0`}
+                  href={`/info/${item.slug}`}
+                  className={`${animationClass} block border-b border-gray-200 py-8 transition-all duration-700 ease-out first:pt-0 last:border-b-0 last:pb-0`}
                   style={getStyle(250 + index * 80)}
+                  aria-label={`${item.title} の詳細を見る`}
                 >
-                  <div className="flex items-stretch gap-6">
+                  <article className="flex items-stretch gap-6">
                     <div className="flex min-w-0 flex-1 flex-col gap-3">
                       <div className="flex flex-wrap items-center gap-3 text-xs">
                         <span className="text-sm font-semibold tracking-wide text-gray-900">
@@ -176,42 +136,46 @@ export function NewsSection() {
                         className="h-full w-full object-cover"
                       />
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
 
             <div className="hidden gap-12 md:grid md:grid-cols-2">
               {filteredNews.map((item, index) => (
-                <article
+                <Link
                   key={item.id}
-                  className={`${animationClass} flex h-full min-h-[520px] flex-col cursor-pointer transition-all duration-700 ease-out md:min-h-[560px]`}
+                  href={`/info/${item.slug}`}
+                  className={`${animationClass} flex h-full min-h-[520px] flex-col rounded-[32px] transition-all duration-700 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-gray-200/60 md:min-h-[560px]`}
                   style={getStyle(250 + index * 80)}
+                  aria-label={`${item.title} の詳細を見る`}
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-gray-100">
-                    <ImageWithFallback
-                      src={item.image}
-                      alt={item.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="mt-6 flex flex-1 flex-col space-y-3">
-                    <div className="flex flex-wrap items-center gap-3 text-sm">
-                      <span className="font-semibold tracking-wide">
-                        {item.date}
-                      </span>
-                      <span className="rounded-full bg-gray-900 px-3 py-1 text-xs uppercase tracking-wide text-white">
-                        {item.category}
-                      </span>
+                  <article className="flex h-full flex-col">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-[32px] bg-gray-100">
+                      <ImageWithFallback
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-cover"
+                      />
                     </div>
-                    <h3 className="text-2xl font-medium leading-snug text-gray-900">
-                      {item.title}
-                    </h3>
-                    <p className="mt-auto text-sm leading-relaxed text-gray-500">
-                      {item.description}
-                    </p>
-                  </div>
-                </article>
+                    <div className="mt-6 flex flex-1 flex-col space-y-3 px-1">
+                      <div className="flex flex-wrap items-center gap-3 text-sm">
+                        <span className="font-semibold tracking-wide">
+                          {item.date}
+                        </span>
+                        <span className="rounded-full bg-gray-900 px-3 py-1 text-xs uppercase tracking-wide text-white">
+                          {item.category}
+                        </span>
+                      </div>
+                      <h3 className="text-2xl font-medium leading-snug text-gray-900">
+                        {item.title}
+                      </h3>
+                      <p className="mt-auto text-sm leading-relaxed text-gray-500">
+                        {item.description}
+                      </p>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
 
