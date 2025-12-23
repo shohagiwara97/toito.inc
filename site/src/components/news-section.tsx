@@ -44,13 +44,13 @@ const newsItems = [
       "顧客価値と向き合うことで生まれた『おまかせEV for Biz』配車・充電マネジメントで法人のEV導入を親身に支援",
     description:
       "車両配備、経路最適化、エネルギーマネジメントをワンストップ化。顧客ヒアリングをもとにした最短デリバリー体制が強み。",
-    category: "社員インタビュー",
+    category: "お知らせ",
     image:
       "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
   }
 ];
 
-const categories = ["All", "社員インタビュー", "事例紹介"];
+const categories = ["All", "事例紹介", "お知らせ"];
 
 export function NewsSection() {
   const [selectedCategory, setSelectedCategory] = useState("All");
