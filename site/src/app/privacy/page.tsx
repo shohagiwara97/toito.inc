@@ -14,9 +14,8 @@ export default function PrivacyPolicyPage() {
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-950 to-black text-white">
       <div className="mx-auto max-w-4xl px-6 py-16 sm:py-20 lg:py-24">
         <header className="mb-12 space-y-4 lg:mb-16">
-          <p className="text-xs uppercase tracking-[0.4em] text-white/60">Privacy Policy</p>
           <h1 className="text-[clamp(42px,6vw,72px)] font-semibold leading-tight tracking-tight">
-            プライバシーポリシー
+            Privacy Policy
           </h1>
           <p className="text-sm text-white/70">最終更新日：{lastUpdated}</p>
           <div className="flex flex-wrap gap-3 text-sm text-white/80">
