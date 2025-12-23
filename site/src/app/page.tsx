@@ -10,11 +10,7 @@ export default function Page() {
     <div
       className="relative min-h-screen"
       style={{
-        backgroundImage:
-          "url('/xr_background.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed"
+        backgroundColor: "black"
       }}
     >
       <Header />
