@@ -28,7 +28,7 @@ export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative flex min-h-screen items-center px-4 py-20 sm:px-6 md:py-32"
+      className="relative flex min-h-screen items-start pt-32 px-4 py-20 sm:px-6 md:py-32 lg:pt-40"
     >
       <div className="container relative z-10 mx-auto max-w-6xl">
         <AnimatedSection animation="fadeUp">
