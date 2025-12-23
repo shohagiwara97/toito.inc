@@ -1,9 +1,22 @@
 'use client';
 
+import { useEffect, useRef } from "react";
 import topVideo from "../../image/toito_top.mp4";
 import { AnimatedSection } from "./animated-section";
 
 export function HomeSection() {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      videoRef.current?.play().catch(() => {
+        // Autoplay might be blocked; ignore quietly
+      });
+    }, 1300);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
   return (
     <section
       id="home"
@@ -19,11 +32,12 @@ export function HomeSection() {
         >
           <div className="aspect-[16/9]">
             <video
+              ref={videoRef}
               src={topVideo}
-              autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className="h-full w-full object-cover"
             />
           </div>
