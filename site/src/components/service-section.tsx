@@ -51,9 +51,6 @@ export function ServiceSection() {
                     />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 left-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-gray-900">
-                    0{service.id}
-                  </div>
                 </div>
                 <div className="flex flex-1 flex-col gap-3 p-6">
                   <h3 className="text-lg font-semibold text-gray-900 leading-tight">{service.title}</h3>
