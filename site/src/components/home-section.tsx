@@ -15,7 +15,7 @@ export function HomeSection() {
         <AnimatedSection
           animation="fadeUp"
           delay={120}
-          className="relative w-full max-w-5xl overflow-hidden rounded-[32px] border border-white/10 shadow-2xl shadow-black/50"
+          className="relative w-full max-w-5xl overflow-hidden rounded-[32px]"
         >
           <div className="aspect-[16/9]">
             <video
